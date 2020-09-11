@@ -1,0 +1,38 @@
+
+gsutil mb gs://kamau-bucket
+gsutil mb gs://kamau-bucket1
+
+gsutil cp Desktop/MY_FILE
+ls
+gsutil cp MY_FILE.rtf gs://kamau-bucket1
+gcloud compute regions list
+INFRACLASS_REGION=us-central1
+echo $INFRACLASS_REGION
+mkdir infraclass
+touch infraclass/config
+echo INFRACLASS_REGION=$INFRACLASS_REGION >> ~/infraclass/config
+INFRACLASS_PROJECT_ID=qwiklabs-gcp-04-3db40d38ad09
+source infraclass/config
+echo $INFRACLASS_PROJECT_ID
+
+echo $INFRACLASS_PROJECT_ID
+nano .profile
+
+# if running bash
+if [ -n "$BASH_VERSION" ]; then
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+        . "$HOME/.bashrc"
+    fi
+fi
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+source infraclass/config
+
+echo $INFRACLASS_PROJECT_ID
